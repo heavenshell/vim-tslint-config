@@ -1,0 +1,105 @@
+*tslint*	Wrapper for TSlint.
+
+Version: 0.1.0
+Author: Shinya Ohynagi <sohyanagi@gmail.com>
+Repository: http://github.com/heavenshell/vim-tslint-config/
+License: BSD, see LICENSE for more details.
+
+==============================================================================
+CONTENTS					*tslint-vim-contents*
+
+Introduction		|tslint-vim-introduction|
+Install			|tslint-vim-install|
+Tutorial		|tslint-vim-tutorial|
+Variables		|tslint-vim-variables|
+
+==============================================================================
+INTRODUCTION					*tslint-vim-introduction*
+
+|tslint.vim| is a wrapper of `TSlint`.
+
+I want to load `tslint` config file dynamically.
+
+`Syntastic` can use `tslint` but not support config file.
+
+`watchdocs.vim` also has `tslint` settings but not supporting config file.
+
+==============================================================================
+INSTALL						*tslint-vim-install*
+
+Install the distributed files into Vim runtime directory which is usually
+~/.vim/, or $HOME/vimfiles on Windows.
+
+If you install pathogen that provided from Tim Pope, you should extract the
+file into 'bundle' directory.
+
+==============================================================================
+TUTORIAL					*tslint-vim-tutorial*
+
+Configure:
+
+Add tslint config file name to your .vimrc.
+>
+  " tslint.vim {{{
+  let g:tslint_configs = [
+    \ 'tslint-config-standard',
+    \ 'tslint-config-airbnb',
+    \ '.tslintrc',
+    \ '~/.tslintrc',
+    \ ]
+    " }}}
+>
+Usage:
+>
+  :Tslint
+>
+If you did not set any args, vim-tslint would use g:tslint_configs's first value.
+>
+  :Tslint -c tslint-config-standard
+>
+You can select tslint config file via command line.
+>
+  :silent make|redraw|copen
+>
+Execute tslint via :make.
+
+
+Helpful plugins
+`QuickFixstatus` shows error message at the bottom of the screen.
+
+`Hier` will highlight quickfix errors and location list entries in buffer.
+
+Integration:
+
+vim-tslint can integrate with watchdocs.vim.
+
+Configure followings to your .vimrc.
+>
+  " Enable vim-tslint config
+  let g:quickrun_config['typescript/watchdogs_checker'] = {
+    \ 'type': 'watchdogs_checker/tslint',
+    \ 'hook/watchdogs_quickrun_running_tslint/enable': 1,
+    \ }
+>
+Run watchdocs.vim.
+>
+  :WatchdogsRun
+>
+Run `Tslint and WatchdogsRun` at once.
+>
+  :TslintRun -c tslint-config-standard
+>
+==============================================================================
+VARIABLES					*tslint-vim-variables*
+g:tslint_configs				*g:tslint_configs*
+		List of tslint configs.
+		First value is default value.
+
+		Default value is [].
+
+==============================================================================
+CHANGELOG					*tslint-vim-changelog*
+2016-09-19
+- First release
+
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:
