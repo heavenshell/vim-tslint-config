@@ -1,6 +1,6 @@
 " File: tslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.0
+" Version: 0.1.1
 " WebPage: http://github.com/heavenshell/vim-tslint-config
 " Description: Vim plugin for TSlint
 " License: BSD, see LICENSE for more details.

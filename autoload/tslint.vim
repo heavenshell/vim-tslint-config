@@ -1,6 +1,6 @@
 " File: tslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.0
+" Version: 0.1.1
 " WebPage: http://github.com/heavenshell/vim-tslint-config
 " Description: Vim plugin for tslint
 " License: BSD, see LICENSE for more details.
@@ -22,9 +22,12 @@ let s:tslint_complete = ['c']
 let s:tslint = {}
 
 function! s:detect_tslint_bin(srcpath) abort
+  let tslint = ''
   if executable('tslint') == 0
     let root_path = finddir('node_modules', a:srcpath . ';')
     let tslint = root_path . '/.bin/tslint'
+  else
+    let tslint = execpath('tslint')
   endif
 
   return tslint
