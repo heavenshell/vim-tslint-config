@@ -1,6 +1,6 @@
 " File: tslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.1
+" Version: 0.1.2
 " WebPage: http://github.com/heavenshell/vim-tslint-config
 " Description: Vim plugin for tslint
 " License: BSD, see LICENSE for more details.
@@ -40,8 +40,12 @@ function! s:build_config(srcpath) abort
       let path = printf('%s/%s', root_path, c)
       if isdirectory(path)
         let s:tslint_config = path
+        break
       else
         let s:tslint_config = printf('%s', findfile(c, a:srcpath . ';'))
+        if s:tslint_config != ''
+          break
+        endif
       endif
     endfor
   else

@@ -1,6 +1,6 @@
 *tslint*	Wrapper for TSlint.
 
-Version: 0.1.1
+Version: 0.1.2
 Author: Shinya Ohynagi <sohyanagi@gmail.com>
 Repository: http://github.com/heavenshell/vim-tslint-config/
 License: BSD, see LICENSE for more details.
@@ -99,6 +99,9 @@ g:tslint_configs				*g:tslint_configs*
 
 ==============================================================================
 CHANGELOG					*tslint-vim-changelog*
+2016-10-07
+- Fix tiny bug
+
 2016-09-24
 - Fix tslint path
 
